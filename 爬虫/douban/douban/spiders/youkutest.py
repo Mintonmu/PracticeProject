@@ -3,7 +3,6 @@ import json
 
 import emoji
 import scrapy
-from PyQt5.QtWidgets import QTextEdit
 from scrapy import Request
 
 from douban.items import YoukuItem

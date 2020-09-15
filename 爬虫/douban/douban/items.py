@@ -8,10 +8,14 @@ import scrapy
 
 class DoubanItem(scrapy.Item):
     parent = scrapy.Field()
-    reviewer_author = scrapy.Field()
-    title = scrapy.Field()
+    level = scrapy.Field()
     data_cid = scrapy.Field()
-    reviewer_content = scrapy.Field()
+    title = scrapy.Field()
+    type = scrapy.Field()
+    commentId = scrapy.Field()
+    commentDate = scrapy.Field()
+    commentContent = scrapy.Field()
+
 
 class YoukuItem(scrapy.Item):
     comment = scrapy.Field()

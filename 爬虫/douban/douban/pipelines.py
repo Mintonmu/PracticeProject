@@ -23,7 +23,7 @@ class Pipeline_ToCSV(object):
 
     def __init__(self):
         # csv文件的位置,无需事先创建
-        store_file = os.path.dirname(__file__) + '/data/qtw.csv'
+        store_file = os.path.dirname(__file__) + '/data/qtw1.csv'
         # 打开(创建)文件
         self.file = open(store_file, 'a', encoding='utf8')
         # csv写法
@@ -32,11 +32,9 @@ class Pipeline_ToCSV(object):
     def process_item(self, item, spider):
         if isinstance(item, DoubanItem):
             # 判断字段值不为空再写入文件
-            if item['reviewer_content']:
-                self.writer.writerow((item['parent'], item['data_cid'],
-                                      item['reviewer_author'],
-                                      item['title'],
-                                      item['reviewer_content']))
+            if item['commentContent']:
+                self.writer.writerow((item['level'], item['parent'], item['data_cid'], item['commentId'],
+                                      item['title'] + "(" + item['type'] + ")", item['commentContent'], item['commentDate']))
         else:
             self.writer.writerow((item['userId'], item['comment']))
 
